@@ -1,0 +1,183 @@
+
+public class PopulateTableQueries {
+
+	/* This is a Constants class containing all queries needed for populating all tables */
+	
+	public static final String deleteCompLogins="DELETE FROM COMPUTER_LOGINS";
+	public static final String deleteComp="DELETE FROM COMPUTERS";
+	public static final String deleteRoomReserv="DELETE FROM ROOM_RESERVATIONS";
+	public static final String deleteStudyRooms="DELETE FROM STUDY_ROOMS";
+	public static final String deleteBorrowedItems="DELETE FROM BORROWED_ITEMS";
+	public static final String deleteReturnedItems="DELETE FROM RETURNED_ITEMS";
+	public static final String deleteHoldItems="DELETE FROM HOLD_ITEMS";
+	public static final String deleteMovies="DELETE FROM MOVIES";
+	public static final String deleteCDS="DELETE FROM CDS";
+	public static final String deleteAudioBooks="DELETE FROM AUDIO_BOOKS";
+	public static final String deleteBooks = "DELETE FROM BOOKS";
+	public static final String deleteItems="DELETE FROM ITEMS";
+	public static final String deleteCardUserRel = "DELETE FROM CARD_USER_RELATIONSHIP";
+	public static final String deleteLibCards="DELETE FROM LIBRARY_CARDS";
+	public static final String deleteLibrarians="DELETE FROM LIBRARIANS";
+	public static final String deleteLibUsers="DELETE FROM LIBRARY_USERS";
+	public static final String deleteLocInLib="DELETE FROM LOCATION_IN_LIBRARY";
+	public static final String deleteAddress="DELETE FROM ADDRESS";
+	
+	/*ADDRESS*/
+	public static final String populateAddress1 = "INSERT INTO ADDRESS(ADDRESS_ID, ADDRESS_LINE1, ADDRESS_LINE2, POSTAL_CODE, PHONE_NUMBER, CITY, PROVINCE)"
+				+"VALUES(11, '9 JANE ST.', NULL, 'A1B 2C3', 9051112222, 'TORONTO', 'ONTARIO')";
+	public static final String populateAddress2 = "INSERT INTO ADDRESS(ADDRESS_ID, ADDRESS_LINE1, ADDRESS_LINE2, POSTAL_CODE, PHONE_NUMBER, CITY, PROVINCE)"
+				+"VALUES(22, '47 YONGE ST.', 'SUITE 268', 'R7A 4F3', 6473334444, 'TORONTO', 'ONTARIO')";
+	public static final String populateAddress3 = "INSERT INTO ADDRESS(ADDRESS_ID, ADDRESS_LINE1, ADDRESS_LINE2, POSTAL_CODE, PHONE_NUMBER, CITY, PROVINCE)"
+				+"VALUES(33, '852 BLOOR ST. EAST', 'SUITE 293', 'J6V 8D8', 4161234567, 'TORONTO', 'ONTARIO')";
+	
+	/*LIBRARY_USERS*/
+	public static final String populateLibUsers1 = "INSERT INTO LIBRARY_USERS(USER_ID, FIRST_NAME, LAST_NAME, EMAIL, ADDRESS_ID)"
+	+"VALUES(10023, 'JASON', 'APPLESEED', 'JASONAPPLESEED@HOTMAIL.COM', 11)";
+	public static final String populateLibUsers2 = "INSERT INTO LIBRARY_USERS(USER_ID, FIRST_NAME, LAST_NAME, EMAIL, ADDRESS_ID)"
+	+"VALUES(10024, 'STEVE', 'JOBS', 'STEVEJOBS@APPLE.COM', 22)";
+	public static final String populateLibUsers3 = "INSERT INTO LIBRARY_USERS(USER_ID, FIRST_NAME, LAST_NAME, EMAIL, ADDRESS_ID)"
+	+"VALUES(10025, 'JASON', 'LI', 'JASONLI@TEST.COM', 33)";
+
+	/*LIBRARIANS*/
+	public static final String populateLibrarians1 = "INSERT INTO LIBRARIANS(EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_TYPE)"
+	+"VALUES(10026, 'JASON', 'BOURNE', 'PART-TIME')";
+	public static final String populateLibrarians2 = "INSERT INTO LIBRARIANS(EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_TYPE)"
+	+"VALUES(10027, 'JESSICA', 'JONES', 'FULL-TIME')";
+	public static final String populateLibrarians3 = "INSERT INTO LIBRARIANS(EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_TYPE)"
+	+"VALUES(10028, 'ERIC', 'CHAN', 'FULL-TIME')";
+	
+	/*LOCATION_IN_LIBRARY*/
+	public static final String populateLocInLib1 = "INSERT INTO LOCATION_IN_LIBRARY(LOCATION_IN_LIBRARY_ID, CATEGORY, AISLE_NUM) VALUES(10029, 'FICTION', 6)";
+	public static final String populateLocInLib2 = "INSERT INTO LOCATION_IN_LIBRARY(LOCATION_IN_LIBRARY_ID, CATEGORY, AISLE_NUM) VALUES(10030, 'HISTORY', 12)";
+	public static final String populateLocInLib3 = "INSERT INTO LOCATION_IN_LIBRARY(LOCATION_IN_LIBRARY_ID, CATEGORY, AISLE_NUM) VALUES(10031, 'SCI-FI', 1)";
+	public static final String populateLocInLib4 = "INSERT INTO LOCATION_IN_LIBRARY(LOCATION_IN_LIBRARY_ID,CATEGORY,AISLE_NUM) VALUES(10000001,'COMPUTERS',1)";
+	
+	/*LIBRARY_CARDS*/
+	public static final String populateLibraryCards1 = "INSERT INTO LIBRARY_CARDS(CARD_NUM, WHEN_CREATED, EXPIRY_DATE)"
+	+"VALUES(10032, TO_DATE('26/09/2017','DD/MM/YYYY'), TO_DATE('26/09/2021','DD/MM/YYYY'))";
+	public static final String populateLibraryCards2 = "INSERT INTO LIBRARY_CARDS(CARD_NUM, WHEN_CREATED, EXPIRY_DATE)"
+	+"VALUES(10034, TO_DATE('26/09/2017','DD/MM/YYYY'), TO_DATE('26/09/2023','DD/MM/YYYY'))";
+	public static final String populateLibraryCards3 = "INSERT INTO LIBRARY_CARDS(CARD_NUM, WHEN_CREATED, EXPIRY_DATE)"
+	+"VALUES(10036, TO_DATE('26/09/2017','DD/MM/YYYY'), TO_DATE('26/09/2020','DD/MM/YYYY'))";
+	
+	/*CARD_USER_RELATIONSHIP*/
+	public static final String populateCardUserRel1 = "INSERT INTO CARD_USER_RELATIONSHIP(USER_ID,CARD_NUM)"
+			+ "VALUES(10023,10032)";
+	public static final String populateCardUserRel2 = "INSERT INTO CARD_USER_RELATIONSHIP(USER_ID,CARD_NUM)"
+			+ "VALUES(10024,10034)";
+	public static final String populateCardUserRel3 = "INSERT INTO CARD_USER_RELATIONSHIP(USER_ID,CARD_NUM)"
+					+ "VALUES(10025,10036)";
+		
+	/*ITEMS*/
+	public static final String populateItems1 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(10038, 10029, 'MOBY DICK', 1)";
+	public static final String populateItems2 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(10041, 10030, 'ART OF WAR', 0)";
+	public static final String populateItems3 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(10044, 10029, 'THE GREAT GATSBY', 1)";
+	
+	/*BORROWED_ITEMS*/
+	public static final String populateItemBorrowed1 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(10047, 10029, 'HAMLET', 0)";
+	public static final String populateItemBorrowed2 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(10049, 10030, 'WORLD WAR I', 0)";
+	public static final String populateItemBorrowed3 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(10051, 10029, 'BRAVE NEW WORLD', 0)";
+	
+	public static final String populateBorrowedItems1 = "INSERT INTO BORROWED_ITEMS(ITEM_ID, DATE_BORROWED, DUE_DATE, CARD_NUM) VALUES(10047, TO_DATE('21/09/2017','DD/MM/YYYY'), TO_DATE('21/10/2017','DD/MM/YYYY'), 10032)";
+	public static final String populateBorrowedItems2 = "INSERT INTO BORROWED_ITEMS(ITEM_ID, DATE_BORROWED, DUE_DATE, CARD_NUM) VALUES(10049, TO_DATE('13/09/2017','DD/MM/YYYY'), TO_DATE('13/10/2017','DD/MM/YYYY'), 10034)";
+	public static final String populateBorrowedItems3 = "INSERT INTO BORROWED_ITEMS(ITEM_ID, DATE_BORROWED, DUE_DATE, CARD_NUM) VALUES(10051, TO_DATE('03/09/2017','DD/MM/YYYY'), TO_DATE('10/04/2017','DD/MM/YYYY'), 10036)";
+	
+	/*RETURNED_ITEMS*/
+	public static final String populateItemReturn1 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(10053, 10029, 'DATABASES FOR DUMMIES', 1)";
+	public static final String populateItemReturn2 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(10056, 10030, 'HISTORY OF COMPUTERS', 1)";
+	public static final String populateItemReturn3 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(10059, 10029, 'THE MERCHANT OF VENICE', 1)";
+	
+	public static final String populateReturnedItems1 = "INSERT INTO RETURNED_ITEMS(ITEM_ID,DATE_RETURNED, CARD_NUM) VALUES(10053, TO_DATE('01/09/2017','DD/MM/YYYY'), 10032)";
+	public static final String populateReturnedItems2 = "INSERT INTO RETURNED_ITEMS(ITEM_ID, DATE_RETURNED, CARD_NUM) VALUES(10056, TO_DATE('20/08/2017','DD/MM/YYYY'), 10032)";
+	public static final String populateReturnedItems3 = "INSERT INTO RETURNED_ITEMS(ITEM_ID, DATE_RETURNED, CARD_NUM) VALUES(10059, TO_DATE('29/08/2017','DD/MM/YYYY'), 10032)";
+
+	/*HOLD_ITEMS*/
+	
+	public static final String populateItemHold1 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(11053, 10029, 'DATABASES FOR DUMMIES II', 1)";
+	public static final String populateItemHold2 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(11056, 10030, 'HISTORY OF COMPUTERS II', 1)";
+	public static final String populateItemHold3 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(11059, 10029, 'THE MERCHANT OF VENICE II', 1)";
+	
+	public static final String poopulateHoldItems1 = "INSERT INTO HOLD_ITEMS (ITEM_ID, WHEN_HOLD, DONE_BY_LIBRARIAN_ID, CARD_NUM) VALUES(10038, TO_DATE('26/09/2017','DD/MM/YYYY'), 10026, 10032)";
+	public static final String poopulateHoldItems2 = "INSERT INTO HOLD_ITEMS (ITEM_ID, WHEN_HOLD, DONE_BY_LIBRARIAN_ID, CARD_NUM) VALUES(10041, TO_DATE('26/09/2017','DD/MM/YYYY'), 10026, 10032)";
+	public static final String poopulateHoldItems3 = "INSERT INTO HOLD_ITEMS (ITEM_ID, WHEN_HOLD, DONE_BY_LIBRARIAN_ID, CARD_NUM) VALUES(10044, TO_DATE('26/09/2017','DD/MM/YYYY'), 10026, 10032)";
+	
+	/*AUDIO_BOOKS*/
+	public static final String populateItemAudioBooks1 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(11051, 10029, 'Cat in the Hat', 1)";
+	public static final String populateItemAudioBooks2 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(11054, 10029, 'Lamborghini', 1)";
+	public static final String populateItemAudioBooks3 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(11057, 10029, 'Poker in the Dark', 1)";
+	
+	public static final String populateAudioBooks1 = "INSERT INTO AUDIO_BOOKS(ITEM_ID, NARRATOR) VALUES(11051, 'T. ROBINS')";
+	public static final String populateAudioBooks2 = "INSERT INTO AUDIO_BOOKS(ITEM_ID, NARRATOR) VALUES(11054, 'T. LOPEZ')";
+	public static final String populateAudioBooks3 = "INSERT INTO AUDIO_BOOKS(ITEM_ID, NARRATOR) VALUES(11057, 'K. MARTIN')";
+
+	
+	/*BOOKS*/
+	public static final String populateItemBooks1 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(11060, 10029, 'Mastery', 1)";
+	public static final String populateItemBooks2 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(10063, 10029, 'Lord of the Rings', 1)";
+	public static final String populateItemBooks3 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE) VALUES(10066, 10029, 'Game of Thrones', 1)";
+	
+	public static final String populateBooks1 = "INSERT INTO BOOKS(ITEM_ID, ISBN, AUTHOR, PUBLISHER)	VALUES(11060, '978-3-16-148410-0', 'J. GEORGE', 'PENGUIN')";
+	public static final String populateBooks2 = "INSERT INTO BOOKS(ITEM_ID, ISBN, AUTHOR, PUBLISHER)	VALUES(10063, '979-3-16-148410-0', 'G. TOLKIEN', 'PENGUIN')";
+	public static final String populateBooks3 = "INSERT INTO BOOKS(ITEM_ID, ISBN, AUTHOR, PUBLISHER)	VALUES(10066, '972-3-16-148410-0', 'R. MARTIN', 'PENGUIN')";
+	
+	/*MOVIES*/
+	public static final String populateItemMovies1 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE)"
+			+"VALUES(10069, 10029, 'Curious George', 1)";
+	public static final String populateItemMovies2 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE)"
+			+"VALUES(10072, 10029, 'The Shining', 1)";
+	public static final String populateItemMovies3 = "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE)"
+			+"VALUES(10075, 10029, 'Lord of the Rings', 1)";
+
+	public static final String populateMovies1 = "INSERT INTO MOVIES(ITEM_ID, GENRE_TYPES) VALUES(10069, 'THRILLER')";
+	public static final String populateMovies2 = "INSERT INTO MOVIES(ITEM_ID, GENRE_TYPES) VALUES(10072, 'HORROR')";
+	public static final String populateMovies3 = "INSERT INTO MOVIES(ITEM_ID, GENRE_TYPES) VALUES(10075, 'FANTASY')";
+	
+	/*CDS*/
+	public static final String populateItemCD1 =  "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE)"
+	+"VALUES(10375, 10029, 'Jay Z Album', 1)";
+	public static final String populateItemCD2 =  "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE)"
+	+"VALUES(10275, 10029, 'Kendrick Album', 1)";
+	public static final String populateItemCD3 =  "INSERT INTO ITEMS(ITEM_ID, LOCATION_IN_LIBRARY_ID, TITLE, AVAILABLE)"
+	+"VALUES(10175, 10029, 'Adele Album', 1)";
+	
+	public static final String populateCDS1 = "INSERT INTO CDS (ITEM_ID, ARTISTS, ALBUM, MUSIC_TYPE)"
+	+"VALUES(10375, 'JAY-Z', '444', 'HIP-HOP')";
+	public static final String populateCDS2 = "INSERT INTO CDS (ITEM_ID, ARTISTS, ALBUM, MUSIC_TYPE)"
+	+"VALUES(10275, 'KENDRICK', 'DAMN', 'HIP-HOP')";
+	public static final String populateCDS3 = "INSERT INTO CDS (ITEM_ID, ARTISTS, ALBUM, MUSIC_TYPE)"
+	+"VALUES(10175, 'ADELE', '25', 'HIP-HOP')";
+	
+	/*STUDY_ROOMS*/
+	
+	public static final String populateStudyRooms1="INSERT INTO STUDY_ROOMS(ROOM_ID, LOCATION_IN_LIBRARY_ID, NAME, MAX_CAPACITY)"
+			+"VALUES(80002, 10030, 'JL', 5)";
+	public static final String populateStudyRooms2="INSERT INTO STUDY_ROOMS(ROOM_ID, LOCATION_IN_LIBRARY_ID, NAME, MAX_CAPACITY)"
+			+"VALUES(80003, 10030, 'CS',3)";
+	public static final String populateStudyRooms3="INSERT INTO STUDY_ROOMS(ROOM_ID, LOCATION_IN_LIBRARY_ID, NAME, MAX_CAPACITY)"
+	+"VALUES(80001,10030,'DV',8)";
+	
+	/*ROOM_RESERVATIONS*/
+	public static final String populateRoomReserv1 = "INSERT INTO ROOM_RESERVATIONS(ROOM_ID, CARD_NUM, RESERVATION_START_DATE,RESERVATION_END_DATE)"
+	+"VALUES(80002, 10032, TO_TIMESTAMP('26/09/2017 12:00','DD/MM/YYYY hh24:mi'),TO_TIMESTAMP('26/09/2017 13:00','DD/MM/YYYY hh24:mi'))";
+	public static final String populateRoomReserv2 = "INSERT INTO ROOM_RESERVATIONS(ROOM_ID, CARD_NUM, RESERVATION_START_DATE,RESERVATION_END_DATE)"
+	+"VALUES(80003, 10034, TO_TIMESTAMP('28/09/2017 15:05','DD/MM/YYYY hh24:mi'),TO_TIMESTAMP('28/09/2017 16:05','DD/MM/YYYY hh24:mi'))";
+	public static final String populateRoomReserv3 = "INSERT INTO ROOM_RESERVATIONS(ROOM_ID, CARD_NUM, RESERVATION_START_DATE,RESERVATION_END_DATE)"
+	+"VALUES(80001, 10036, TO_TIMESTAMP('26/11/2017 08:00','DD/MM/YYYY hh24:mi'),TO_TIMESTAMP('26/11/2017 08:30','DD/MM/YYYY hh24:mi'))";
+		
+	/*COMPUTERS*/
+	public static final String populateComp1 = "INSERT INTO COMPUTERS(COMP_ID, LOCATION_IN_LIBRARY_ID, OPERATING_SYSTEM)"
+			+"VALUES(20001,10000001, 'Windows XP')";
+	public static final String populateComp2 = "INSERT INTO COMPUTERS(COMP_ID, LOCATION_IN_LIBRARY_ID, OPERATING_SYSTEM)"
+			+"VALUES(20002,10000001, 'Windows XP')";
+	public static final String populateComp3= "INSERT INTO COMPUTERS(COMP_ID, LOCATION_IN_LIBRARY_ID, OPERATING_SYSTEM)"
+	+"VALUES(20003,10000001, 'Windows XP')";
+
+	
+	/*COMPUTER_LOGINS*/
+	public static final String populateCompLogin1 = "INSERT INTO COMPUTER_LOGINS(COMP_ID, CARD_NUM, LOG_IN_START_DATE,LOG_IN_END_DATE)"
+				+"VALUES(20003, 10032,TO_TIMESTAMP('21/11/2017 12:00:00','DD/MM/YYYY hh24:mi:ss'),TO_TIMESTAMP('21/11/2017 13:00:00','DD/MM/YYYY hh24:mi:ss'))";
+	public static final String populateCompLogin2 = "INSERT INTO COMPUTER_LOGINS(COMP_ID, CARD_NUM, LOG_IN_START_DATE,LOG_IN_END_DATE)"
+				+"VALUES(20002, 10034,TO_TIMESTAMP('30/09/2017 15:00:00','DD/MM/YYYY hh24:mi:ss'),TO_TIMESTAMP('30/09/2017 15:30:00','DD/MM/YYYY hh24:mi:ss'))";
+	public static final String populateCompLogin3 = "INSERT INTO COMPUTER_LOGINS(COMP_ID, CARD_NUM, LOG_IN_START_DATE,LOG_IN_END_DATE)"
+				+"VALUES(20001, 10036, TO_TIMESTAMP('26/09/2017 08:20:00','DD/MM/YYYY hh24:mi:ss'),TO_TIMESTAMP('26/09/2017 08:40:00','DD/MM/YYYY hh24:mi:ss'))";
+}
